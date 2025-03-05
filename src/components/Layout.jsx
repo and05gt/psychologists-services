@@ -1,5 +1,11 @@
+import AppBar from './AppBar/AppBar.jsx';
+
 const Layout = () => {
-  return <div>Layout</div>;
+  return (
+    <>
+      <AppBar />
+    </>
+  );
 };
 
 export default Layout;

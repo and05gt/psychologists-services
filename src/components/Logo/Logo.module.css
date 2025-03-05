@@ -1,0 +1,22 @@
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+}
+
+.logoAccentText {
+  color: #54be96;
+  font-weight: 700;
+}
+
+.logoAccentText > span {
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

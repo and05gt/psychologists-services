@@ -1,0 +1,36 @@
+.nav {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .link {
+    color: #191a15;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.16px;
+    text-decoration: none;
+  }
+
+  .active {
+    position: relative;
+  }
+
+  .active::after {
+    position: absolute;
+    content: '';
+    bottom: -12px;
+    right: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #54be96;
+    transform: translateX(50%);
+  }
+}
