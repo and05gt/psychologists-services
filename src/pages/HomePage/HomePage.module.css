@@ -1,0 +1,159 @@
+.homeSection {
+  padding-top: 78px;
+  padding-bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 125px;
+}
+
+.textContainer {
+  width: 595px;
+}
+
+.heroTitle {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 82px; /* 102.5% */
+  letter-spacing: -1.6px;
+  margin-bottom: 20px;
+}
+
+.heroTitle span {
+  color: #54be96;
+  font-style: italic;
+}
+
+.heroText {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.36px;
+  margin-bottom: 40px;
+}
+
+.heroBtn {
+  display: flex;
+  width: 236px;
+  padding: 18px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: #54be96;
+  color: #fbfbfb;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  letter-spacing: -0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroBtn:hover,
+.heroBtn:focus {
+  background-color: #36a379;
+}
+
+.heroBtn svg {
+  fill: #fbfbfb;
+}
+
+.imageWrap {
+  position: relative;
+}
+
+.heroImg {
+  border-radius: 12px;
+}
+
+.checkWrap {
+  position: absolute;
+  bottom: 75px;
+  left: -101px;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: #54be96;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkWrap span {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background-color: #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkWrap span svg {
+  fill: #54be96;
+}
+
+.checkTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkText {
+  color: rgba(251, 251, 251, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.checkSum {
+  color: #fbfbfb;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.questionWrap {
+  position: absolute;
+  top: 185px;
+  left: -35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-15deg);
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: #4535af;
+}
+
+.questionWrap svg {
+  fill: #fbfbfb;
+  transform: rotate(15deg);
+}
+
+.usersWrap {
+  position: absolute;
+  top: 38px;
+  right: -38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48.173px;
+  height: 48.173px;
+  transform: rotate(15deg);
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: #fbc75e;
+}
+
+.usersWrap svg {
+  fill: #fbfbfb;
+  transform: rotate(-15deg);
+}

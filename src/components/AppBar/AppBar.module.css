@@ -11,11 +11,23 @@
 }
 
 .headerBtn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .header {
     padding: 20px 32px;
+  }
+
+  .headerBtn svg {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -41,7 +53,7 @@
     cursor: pointer;
     border: none;
     outline: none;
-    padding: 14px 39px;
+    padding: 14px 38px;
     border-radius: 30px;
     border: 1px solid rgba(25, 26, 21, 0.2);
     background-color: transparent;

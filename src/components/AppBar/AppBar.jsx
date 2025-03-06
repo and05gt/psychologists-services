@@ -1,5 +1,6 @@
 import Logo from '../Logo/Logo.jsx';
 import Navigation from '../Navigation/Navigation.jsx';
+import icons from '../../assets/sprite.svg';
 import s from './AppBar.module.css';
 
 const AppBar = () => {
@@ -18,7 +19,9 @@ const AppBar = () => {
         </button>
       </div>
       <button className={s.headerBtn} type="button">
-        =
+        <svg width={34} height={34}>
+          <use href={icons + '#icon-menu'}></use>
+        </svg>
       </button>
     </header>
   );
