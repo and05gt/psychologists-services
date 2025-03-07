@@ -10,7 +10,7 @@ const HomePage = () => {
     <main>
       <Container>
         <section className={s.homeSection}>
-          <div className={s.textContainer}>
+          <div>
             <h1 className={s.heroTitle}>
               The road to the <span>depths</span> of the human soul
             </h1>
@@ -38,8 +38,8 @@ const HomePage = () => {
               srcSet={
                 '../../../src/assets/img/hero-img.webp 1x, ../../../src/assets/img/hero-img@2x.webp 2x'
               }
-              width={464}
-              height={526}
+              width={264}
+              height={326}
             />
             <div className={s.checkWrap}>
               <span>
