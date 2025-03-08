@@ -1,7 +1,9 @@
 import Container from '../../components/Container/Container.jsx';
+import heroImg from '../../assets/img/hero-img.webp';
+import heroImg2x from '../../assets/img/hero-img@2x.webp';
 import icons from '../../assets/sprite.svg';
-import s from './HomePage.module.css';
 import { useNavigate } from 'react-router-dom';
+import s from './HomePage.module.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -33,11 +35,9 @@ const HomePage = () => {
           <div className={s.imageWrap}>
             <img
               className={s.heroImg}
-              src="/src/assets/img/hero-img.webp"
+              src={heroImg}
               alt="Image"
-              srcSet={
-                '/src/assets/img/hero-img.webp 1x, /src/assets/img/hero-img@2x.webp 2x'
-              }
+              srcSet={`${heroImg} 1x, ${heroImg2x} 2x`}
               width={264}
               height={326}
             />
