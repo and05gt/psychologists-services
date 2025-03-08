@@ -33,10 +33,10 @@ const HomePage = () => {
           <div className={s.imageWrap}>
             <img
               className={s.heroImg}
-              src="../../../src/assets/img/hero-img.webp"
+              src="src/assets/img/hero-img.webp"
               alt="Image"
               srcSet={
-                '../../../src/assets/img/hero-img.webp 1x, ../../../src/assets/img/hero-img@2x.webp 2x'
+                'src/assets/img/hero-img.webp 1x, src/assets/img/hero-img@2x.webp 2x'
               }
               width={264}
               height={326}
