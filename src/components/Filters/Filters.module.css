@@ -1,0 +1,53 @@
+.filtersContainer {
+  margin-bottom: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .filtersContainer {
+    margin-bottom: 32px;
+  }
+}
+
+.filtersLabel {
+  color: #8a8a89;
+  font-weight: 500;
+}
+
+.filtersSelectWrap {
+  position: relative;
+}
+
+.filtersSelect {
+  width: 226px;
+  height: 48px;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  border-radius: 14px;
+  background-color: #54be96;
+  color: #fbfbfb;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+/* .filtersSelectWrap svg {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  fill: #fbfbfb;
+} */
+
+/* .filtersSelect:focus + svg {
+  transform: rotate(180deg);
+} */
+
+.filtersOption {
+  color: rgba(25, 26, 21, 0.3);
+  font-size: 16px;
+  line-height: 20px; /* 125% */
+}

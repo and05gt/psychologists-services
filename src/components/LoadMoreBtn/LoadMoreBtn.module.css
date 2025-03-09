@@ -1,0 +1,22 @@
+.loadMoreBtn {
+  padding: 14px 48px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: #54be96;
+  color: #fbfbfb;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  background-color: #36a379;
+}
