@@ -16,16 +16,16 @@
   font-weight: 500;
 }
 
-.filtersSelectWrap {
+.customSelect {
   position: relative;
+  width: 226px;
 }
 
-.filtersSelect {
-  width: 226px;
-  height: 48px;
+.select {
+  /* position: relative; */
+  /* width: 226px;
+  height: 48px; */
   padding: 14px 18px;
-  border: none;
-  outline: none;
   border-radius: 14px;
   background-color: #54be96;
   color: #fbfbfb;
@@ -35,19 +35,53 @@
   cursor: pointer;
 }
 
-/* .filtersSelectWrap svg {
+.select svg {
   position: absolute;
   top: 14px;
   right: 18px;
   fill: #fbfbfb;
-} */
+}
 
-/* .filtersSelect:focus + svg {
-  transform: rotate(180deg);
-} */
+.options {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-.filtersOption {
+.optionsShow {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  z-index: 1000;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  padding: 14px 80px 14px 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  opacity: 1;
+}
+
+.option {
   color: rgba(25, 26, 21, 0.3);
   font-size: 16px;
   line-height: 20px; /* 125% */
+  cursor: pointer;
+}
+
+.option:hover {
+  color: #191a15;
 }

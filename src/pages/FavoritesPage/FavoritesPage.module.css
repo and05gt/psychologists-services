@@ -1,0 +1,18 @@
+.favoritesSection {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .favoritesSection {
+    padding-top: 32px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .favoritesSection {
+    padding-top: 64px;
+    padding-bottom: 100px;
+  }
+}

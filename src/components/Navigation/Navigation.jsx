@@ -15,6 +15,9 @@ const Navigation = () => {
       <NavLink to="/psychologists" className={buildLinkClass}>
         Psychologists
       </NavLink>
+      <NavLink to="/favorites" className={buildLinkClass}>
+        Favorites
+      </NavLink>
     </nav>
   );
 };

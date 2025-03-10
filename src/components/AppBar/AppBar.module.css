@@ -84,7 +84,8 @@
 
   .loginBtn:hover,
   .loginBtn:focus {
-    border: 1px solid #54be96;
+    background-color: #54be96;
+    color: #fbfbfb;
   }
 
   .regBtn {
