@@ -27,11 +27,11 @@ const Filters = () => {
         <div className={s.select} onClick={() => setShowOptions(!showOptions)}>
           {selectedOption ? selectedOption.label : 'A to Z'}
           {showOptions ? (
-            <svg width={20} height={20}>
+            <svg width={16} height={16}>
               <use href={icons + '#icon-chevron-up'}></use>
             </svg>
           ) : (
-            <svg width={20} height={20}>
+            <svg width={16} height={16}>
               <use href={icons + '#icon-chevron-down'}></use>
             </svg>
           )}

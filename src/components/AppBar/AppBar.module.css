@@ -86,6 +86,7 @@
   .loginBtn:focus {
     background-color: #54be96;
     color: #fbfbfb;
+    border: none;
   }
 
   .regBtn {

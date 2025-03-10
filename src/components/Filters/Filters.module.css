@@ -18,33 +18,52 @@
 
 .customSelect {
   position: relative;
-  width: 226px;
+  width: 200px;
+}
+
+@media (min-width: 768px) {
+  .customSelect {
+    width: 226px;
+  }
 }
 
 .select {
-  /* position: relative; */
-  /* width: 226px;
-  height: 48px; */
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 14px;
   background-color: #54be96;
   color: #fbfbfb;
-  font-size: 16px;
   font-weight: 500;
-  line-height: 20px;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .select {
+    padding: 14px 18px;
+    color: #fbfbfb;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .select svg {
   position: absolute;
-  top: 14px;
-  right: 18px;
+  top: 50%;
+  right: 16px;
   fill: #fbfbfb;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .select svg {
+    right: 18px;
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .options {
   position: absolute;
-  top: 56px;
+  top: 50px;
   left: 0;
   right: 0;
   border-radius: 14px;
@@ -58,7 +77,7 @@
 
 .optionsShow {
   position: absolute;
-  top: 56px;
+  top: 50px;
   left: 0;
   right: 0;
   border-radius: 14px;
@@ -67,21 +86,38 @@
   z-index: 1000;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
-  padding: 14px 80px 14px 18px;
+  padding: 12px 16px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .options {
+    top: 56px;
+  }
+
+  .optionsShow {
+    top: 56px;
+    padding: 14px 18px;
+    gap: 8px;
+  }
 }
 
 .option {
   color: rgba(25, 26, 21, 0.3);
-  font-size: 16px;
-  line-height: 20px; /* 125% */
   cursor: pointer;
 }
 
-.option:hover {
-  color: #191a15;
+@media (min-width: 768px) {
+  .option {
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+  }
+
+  .option:hover {
+    color: #191a15;
+  }
 }
