@@ -1,6 +1,13 @@
 .psychologistList {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin-bottom: 64px;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .psychologistList {
+    gap: 32px;
+    margin-bottom: 64px;
+  }
 }

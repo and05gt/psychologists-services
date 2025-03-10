@@ -1,22 +1,30 @@
 .loadMoreBtn {
-  padding: 14px 48px;
+  padding: 12px 32px;
   border: none;
   outline: none;
   border-radius: 30px;
   background-color: #54be96;
   color: #fbfbfb;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
+  line-height: 18px; /* 125% */
   letter-spacing: -0.16px;
   cursor: pointer;
   display: block;
   margin: 0 auto;
 }
 
-.loadMoreBtn:hover,
-.loadMoreBtn:focus {
-  background-color: #36a379;
+@media (min-width: 768px) {
+  .loadMoreBtn {
+    padding: 14px 48px;
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+  }
+
+  .loadMoreBtn:hover,
+  .loadMoreBtn:focus {
+    background-color: #36a379;
+  }
 }

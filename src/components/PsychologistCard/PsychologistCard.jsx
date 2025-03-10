@@ -20,7 +20,7 @@ const PsychologistCard = () => {
           </div>
           <div className={s.additionalBlock}>
             <div className={s.ratingWrap}>
-              <svg width={16} height={16}>
+              <svg width={14} height={14}>
                 <use href={icons + '#icon-star'}></use>
               </svg>
               <p className={s.ratingText}>Rating: 4.75</p>
@@ -29,7 +29,7 @@ const PsychologistCard = () => {
               Price / 1 hour: <span>120$</span>
             </p>
             <button className={s.favoriteBtn} type="button">
-              <svg width={26} height={26}>
+              <svg width={20} height={20}>
                 <use href={icons + '#icon-heart'}></use>
               </svg>
             </button>

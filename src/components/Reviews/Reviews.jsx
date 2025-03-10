@@ -11,7 +11,7 @@ const Reviews = () => {
             <div className={s.reviewsHeaderWrap}>
               <p className={s.reviewsAuthor}>Michael Brown</p>
               <div className={s.reviewsRatingWrap}>
-                <svg width={16} height={16}>
+                <svg width={14} height={14}>
                   <use href={icons + '#icon-star'}></use>
                 </svg>
                 <p className={s.reviewsRating}>4.5</p>
@@ -29,7 +29,7 @@ const Reviews = () => {
             <div className={s.reviewsHeaderWrap}>
               <p className={s.reviewsAuthor}>Linda Johnson</p>
               <div className={s.reviewsRatingWrap}>
-                <svg width={16} height={16}>
+                <svg width={14} height={14}>
                   <use href={icons + '#icon-star'}></use>
                 </svg>
                 <p className={s.reviewsRating}>5.0</p>

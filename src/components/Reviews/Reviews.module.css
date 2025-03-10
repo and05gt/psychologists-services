@@ -1,16 +1,37 @@
 .reviewsList {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin-top: 48px;
-  margin-bottom: 40px;
-  width: 758px;
+  gap: 20px;
+  margin-top: 32px;
+  margin-bottom: 28px;
+  width: 311px;
+}
+
+@media (min-width: 768px) {
+  .reviewsList {
+    gap: 25px;
+    margin-top: 48px;
+    margin-bottom: 40px;
+    width: 485px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .reviewsList {
+    width: 758px;
+  }
 }
 
 .reviewsListItem {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .reviewsListItem {
+    gap: 16px;
+  }
 }
 
 .reviewsHeader {
@@ -23,26 +44,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 100px;
   background: rgba(84, 190, 150, 0.2);
   color: #54be96;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 20px; /* 100% */
+}
+
+@media (min-width: 768px) {
+  .reviewsHeader span {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
 }
 
 .reviewsHeaderWrap {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+}
+
+@media (min-width: 768px) {
+  .reviewsHeaderWrap {
+    gap: 4px;
+  }
 }
 
 .reviewsAuthor {
-  font-size: 16px;
   font-weight: 500;
-  line-height: 20px; /* 125% */
+}
+
+@media (min-width: 768px) {
+  .reviewsAuthor {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px; /* 125% */
+  }
 }
 
 .reviewsRatingWrap {
@@ -55,30 +96,50 @@
   fill: #ffc531;
 }
 
+@media (min-width: 768px) {
+  .reviewsRatingWrap svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .reviewsRating {
   font-weight: 500;
 }
 
 .reviewsText {
   color: rgba(25, 26, 21, 0.5);
-  font-size: 16px;
-  line-height: 20px; /* 125% */
+}
+
+@media (min-width: 768px) {
+  .reviewsText {
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+  }
 }
 
 .reviewsBtn {
-  width: 227px;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border: none;
   outline: none;
   border-radius: 30px;
   background-color: #54be96;
   color: #fbfbfb;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
+  line-height: 18px; /* 125% */
   letter-spacing: -0.16px;
   display: block;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .reviewsBtn {
+    width: 227px;
+    padding: 14px 32px;
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+  }
 }

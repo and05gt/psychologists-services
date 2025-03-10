@@ -1,9 +1,18 @@
 .cardContainer {
-  padding: 24px;
-  border-radius: 24px;
+  padding: 16px;
+  border-radius: 16px;
   background-color: #fbfbfb;
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .cardContainer {
+    padding: 24px;
+    flex-direction: row;
+    gap: 24px;
+  }
 }
 
 .avatarWrapper {
@@ -27,36 +36,74 @@
   right: 14px;
 }
 
-/* .infoContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-} */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .infoContainer {
+    width: 485px;
+  }
+}
 
 .infoHeader {
   display: flex;
+  flex-direction: column;
   align-items: start;
-  justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 375px) and (max-width: 1439px) {
+  .infoHeader {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .infoHeader {
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .infoHeader {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .infoTitleWrap {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .infoTitleWrap {
+    gap: 8px;
+  }
 }
 
 .infoSubTitle {
   color: #8a8a89;
-  font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .infoSubTitle {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+  }
 }
 
 .infoTitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 24px; /* 100% */
+  line-height: 20px; /* 100% */
+}
+
+@media (min-width: 768px) {
+  .infoTitle {
+    font-size: 24px;
+    line-height: 24px; /* 100% */
+  }
 }
 
 .additionalBlock {
@@ -77,28 +124,54 @@
   fill: #ffc531;
 }
 
+@media (min-width: 768px) {
+  .ratingWrap svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .ratingWrap::after {
   position: absolute;
   content: '';
   top: 50%;
   right: 0;
   width: 1px;
-  height: 16px;
+  height: 14px;
   background-color: rgba(25, 26, 21, 0.2);
   transform: translateY(-50%);
 }
 
+@media (min-width: 768px) {
+  .ratingWrap::after {
+    height: 16px;
+  }
+}
+
 .ratingText {
-  font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 20px; /* 150% */
+}
+
+@media (min-width: 768px) {
+  .ratingText {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+  }
 }
 
 .priceText {
-  font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
-  margin-right: 28px;
+  line-height: 20px; /* 150% */
+  margin-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .priceText {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    margin-right: 28px;
+  }
 }
 
 .priceText span {
@@ -115,22 +188,51 @@
   cursor: pointer;
 }
 
+@media (min-width: 768px) {
+  .favoriteBtn svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
 .infoList {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 4px;
-  width: 840px;
-  margin-bottom: 24px;
+  gap: 6px 0;
+  width: 311px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .infoList {
+    gap: 8px 4px;
+    width: 485px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .infoList {
+    width: 840px;
+  }
 }
 
 .infoListItem {
-  padding: 8px 16px;
-  border-radius: 24px;
+  padding: 8px 14px;
+  border-radius: 20px;
   background-color: #f3f3f3;
   color: #8a8a89;
-  font-size: 16px;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 20px; /* 150% */
+}
+
+@media (min-width: 768px) {
+  .infoListItem {
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+  }
 }
 
 .infoListItem span {
@@ -139,10 +241,22 @@
 
 .infoText {
   color: rgba(25, 26, 21, 0.5);
-  font-size: 16px;
-  line-height: 20px; /* 125% */
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
+
+@media (min-width: 768px) {
+  .infoText {
+    font-size: 16px;
+    line-height: 20px; /* 125% */
+    margin-bottom: 14px;
+  }
+}
+
+/* @media (min-width: 768px) and (max-width: 1439px) {
+  .infoText {
+    max-width: 485px;
+  }
+} */
 
 .infoBtn {
   border: none;
@@ -150,10 +264,10 @@
   background-color: transparent;
   color: #191a15;
   font-family: Inter;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 20px; /* 150% */
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-skip-ink: none;
@@ -161,4 +275,11 @@
   text-underline-offset: auto;
   text-underline-position: from-font;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .infoBtn {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+  }
 }
