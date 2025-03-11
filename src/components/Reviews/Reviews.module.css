@@ -133,6 +133,7 @@
   letter-spacing: -0.16px;
   display: block;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (min-width: 768px) {
@@ -141,5 +142,10 @@
     padding: 14px 32px;
     font-size: 16px;
     line-height: 20px; /* 125% */
+  }
+
+  .reviewsBtn:hover,
+  .reviewsBtn:focus {
+    background-color: #36a379;
   }
 }
