@@ -4,6 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999;
   background-color: rgba(25, 26, 21, 0.6);
   display: flex;
   justify-content: center;
@@ -12,7 +13,7 @@
 
 .modal {
   position: relative;
-  width: 600px;
+  /* width: 600px; */
   padding: 64px;
   border-radius: 30px;
   background-color: #fbfbfb;
@@ -29,141 +30,4 @@
   outline: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-.modalTitleWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.modalTitle {
-  width: 382px;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 48px; /* 120% */
-  letter-spacing: -0.8px;
-}
-
-.modalText {
-  width: 462px;
-  color: rgba(25, 26, 21, 0.5);
-  font-size: 16px;
-  line-height: 20px; /* 125% */
-}
-
-.psychologistContainer {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.psychologistImg {
-  width: 44px;
-  height: 44px;
-  border-radius: 15px;
-  background-color: #e0e0e0;
-}
-
-.psychologistWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.psychologistText {
-  color: #8a8a89;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px; /* 133.333% */
-}
-
-.psychologistName {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
-}
-
-.formWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 472px;
-  margin-bottom: 40px;
-}
-
-.label {
-}
-
-.input {
-  width: 472px;
-  height: 52px;
-  padding: 16px 18px;
-  outline: none;
-  border-radius: 12px;
-  border: 1px solid rgba(25, 26, 21, 0.1);
-  background-color: transparent;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-}
-
-.inputComment {
-  width: 472px;
-  height: 116px;
-  padding: 16px 18px;
-  outline: none;
-  border-radius: 12px;
-  border: 1px solid rgba(25, 26, 21, 0.1);
-  background-color: transparent;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-  resize: none;
-}
-
-.error {
-  color: #dd0404;
-}
-
-.telTimeWrap {
-  display: flex;
-  gap: 8px;
-}
-
-.telTimeWrap input {
-  width: 232px;
-  height: 52px;
-  padding: 16px 18px;
-  outline: none;
-  border-radius: 12px;
-  border: 1px solid rgba(25, 26, 21, 0.1);
-  background-color: transparent;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-}
-
-.formBtn {
-  width: 472px;
-  padding: 16px 217px;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  background-color: #54be96;
-  color: #fbfbfb;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 125% */
-  letter-spacing: -0.16px;
-  cursor: pointer;
-  display: block;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.formBtn:hover,
-.formBtn:focus {
-  background-color: #36a379;
 }

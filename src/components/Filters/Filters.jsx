@@ -3,13 +3,13 @@ import icons from '../../assets/sprite.svg';
 import s from './Filters.module.css';
 
 const options = [
-  { label: 'A to Z', value: 'A to Z' },
-  { label: 'Z to A', value: 'Z to A' },
-  { label: 'Less than 10$', value: 'Less than 10$' },
-  { label: 'Greater than 10$', value: 'Greater than 10$' },
-  { label: 'Popular', value: 'Popular' },
-  { label: 'Not popular', value: 'Not popular' },
-  { label: 'Show all', value: 'Show all' },
+  { id: 1, label: 'A to Z' },
+  { id: 2, label: 'Z to A' },
+  { id: 3, label: 'Less than 10$' },
+  { id: 4, label: 'Greater than 10$' },
+  { id: 5, label: 'Popular' },
+  { id: 6, label: 'Not popular' },
+  { id: 7, label: 'Show all' },
 ];
 const Filters = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -41,7 +41,7 @@ const Filters = () => {
             {options.map((option) => (
               <div
                 className={s.option}
-                key={option.value}
+                key={option.id}
                 onClick={() => handleSelect(option)}
               >
                 {option.label}
