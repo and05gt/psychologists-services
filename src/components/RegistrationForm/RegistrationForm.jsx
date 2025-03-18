@@ -2,7 +2,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Modal from '../Modal/Modal.jsx';
-import s from './Registration.module.css';
+import icons from '../../assets/sprite.svg';
+import s from './RegistrationForm.module.css';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/auth/operations.js';
+import { useState } from 'react';
 
 const schema = yup.object().shape({
   name: yup
@@ -18,6 +22,9 @@ const schema = yup.object().shape({
 });
 
 const Registration = ({ isOpen, onClose }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -28,8 +35,10 @@ const Registration = ({ isOpen, onClose }) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(registerUser(data));
     reset();
+    onClose();
+    // додати закриття по бекдропу та Esc
   };
 
   return (
@@ -67,9 +76,24 @@ const Registration = ({ isOpen, onClose }) => {
             <input
               className={s.input}
               {...register('password')}
-              type="text"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
             />
+            <button
+              className={s.togglePassword}
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <svg width={20} height={20}>
+                  <use href={icons + '#icon-eye'}></use>
+                </svg>
+              ) : (
+                <svg width={20} height={20}>
+                  <use href={icons + '#icon-eye-off'}></use>
+                </svg>
+              )}
+            </button>
             {errors.password && (
               <p className={s.error}>{errors.password?.message}</p>
             )}

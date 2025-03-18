@@ -18,6 +18,7 @@ const Filters = () => {
   const handleSelect = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
+    // зробити фільтрацію
   };
 
   return (

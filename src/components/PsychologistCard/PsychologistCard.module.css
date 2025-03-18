@@ -195,6 +195,10 @@
   }
 }
 
+.favoriteSvg {
+  fill: #54be96;
+}
+
 .infoList {
   display: flex;
   flex-wrap: wrap;
@@ -241,14 +245,12 @@
 
 .infoText {
   color: rgba(25, 26, 21, 0.5);
-  margin-bottom: 12px;
 }
 
 @media (min-width: 768px) {
   .infoText {
     font-size: 16px;
     line-height: 20px; /* 125% */
-    margin-bottom: 14px;
   }
 }
 
@@ -275,11 +277,13 @@
   text-underline-offset: auto;
   text-underline-position: from-font;
   cursor: pointer;
+  margin-top: 12px;
 }
 
 @media (min-width: 768px) {
   .infoBtn {
     font-size: 16px;
     line-height: 24px; /* 150% */
+    margin-top: 14px;
   }
 }

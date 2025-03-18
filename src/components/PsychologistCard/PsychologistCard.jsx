@@ -1,13 +1,36 @@
+import { useEffect, useState } from 'react';
 import avatar from '../../assets/img/avatar-1.webp';
 import icons from '../../assets/sprite.svg';
 import Reviews from '../Reviews/Reviews.jsx';
 import s from './PsychologistCard.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/psychologists/selectors.js';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
+import { toggleFavorite } from '../../redux/psychologists/slice.js';
 
-const PsychologistCard = () => {
+const PsychologistCard = ({ data }) => {
+  const [showReviews, setShowReviews] = useState(false);
+  const favorites = useSelector(selectFavorites);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
+
+  const isFavorite = favorites.some((favorite) => favorite?.uid === data?.uid);
+
+  const addFavorite = (item) => {
+    if (isLoggedIn) {
+      dispatch(toggleFavorite(item));
+    } else {
+      console.log('This functionality is available only to authorized users');
+
+      // додати react-hot-toast
+      return;
+    }
+  };
+
   return (
     <div className={s.cardContainer}>
       <div className={s.avatarWrapper}>
-        <img className={s.avatar} src={avatar} alt="Avatar" />
+        <img className={s.avatar} src={data.avatar_url} alt="Avatar" />
         <svg width={14} height={14}>
           <use href={icons + '#icon-online'}></use>
         </svg>
@@ -16,53 +39,61 @@ const PsychologistCard = () => {
         <div className={s.infoHeader}>
           <div className={s.infoTitleWrap}>
             <p className={s.infoSubTitle}>Psychologist</p>
-            <h3 className={s.infoTitle}>Dr. Sarah Davis</h3>
+            <h3 className={s.infoTitle}>{data.name}</h3>
           </div>
           <div className={s.additionalBlock}>
             <div className={s.ratingWrap}>
               <svg width={14} height={14}>
                 <use href={icons + '#icon-star'}></use>
               </svg>
-              <p className={s.ratingText}>Rating: 4.75</p>
+              <p className={s.ratingText}>Rating: {data.rating}</p>
             </div>
             <p className={s.priceText}>
-              Price / 1 hour: <span>120$</span>
+              Price / 1 hour: <span>{data.price_per_hour}$</span>
             </p>
-            <button className={s.favoriteBtn} type="button">
-              <svg width={20} height={20}>
-                <use href={icons + '#icon-heart'}></use>
-              </svg>
+            <button
+              className={s.favoriteBtn}
+              type="button"
+              onClick={() => addFavorite(data)}
+            >
+              {isFavorite && isLoggedIn ? (
+                <svg className={s.favoriteSvg} width={20} height={20}>
+                  <use href={icons + '#icon-heart-selected'}></use>
+                </svg>
+              ) : (
+                <svg width={20} height={20}>
+                  <use href={icons + '#icon-heart'}></use>
+                </svg>
+              )}
             </button>
           </div>
         </div>
         <ul className={s.infoList}>
           <li className={s.infoListItem}>
-            Experience: <span>12 years</span>
+            Experience: <span>{data.experience}</span>
           </li>
           <li className={s.infoListItem}>
-            License: <span>Licensed Psychologist (License #67890)</span>
+            License: <span>{data.license}</span>
           </li>
           <li className={s.infoListItem}>
-            Specialization: <span>Depression and Mood Disorders</span>
+            Specialization: <span>{data.specialization}</span>
           </li>
           <li className={s.infoListItem}>
-            Initial_consultation:{' '}
-            <span>Free 45-minute initial consultation</span>
+            Initial_consultation: <span>{data.initial_consultation}</span>
           </li>
         </ul>
-        <p className={s.infoText}>
-          Dr. Sarah Davis is a highly experienced and licensed psychologist
-          specializing in Depression and Mood Disorders. With 12 years of
-          practice, she has helped numerous individuals overcome their
-          depression and regain control of their lives. Dr. Davis is known for
-          her empathetic and understanding approach to therapy, making her
-          clients feel comfortable and supported throughout their journey to
-          better mental health.
-        </p>
-        <button className={s.infoBtn} type="button">
-          Read more
-        </button>
-        <Reviews />
+        <p className={s.infoText}>{data.about}</p>
+        {showReviews ? (
+          <Reviews data={data} />
+        ) : (
+          <button
+            className={s.infoBtn}
+            type="button"
+            onClick={() => setShowReviews(!showReviews)}
+          >
+            Read more
+          </button>
+        )}
       </div>
     </div>
   );

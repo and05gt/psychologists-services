@@ -25,6 +25,10 @@
   margin-bottom: 40px;
 }
 
+label {
+  position: relative;
+}
+
 .input {
   width: 438px;
   height: 52px;
@@ -40,6 +44,16 @@
 
 .input::placeholder {
   color: #191a15;
+}
+
+.togglePassword {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 .error {

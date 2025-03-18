@@ -1,0 +1,60 @@
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.userWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #54be96;
+}
+
+.avatar svg {
+  fill: #fbfbfb;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+}
+
+.logoutBtn {
+  width: 135px;
+  height: 48px;
+  padding: 14px 38px;
+  border-radius: 30px;
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  background-color: transparent;
+  color: #191a15;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.16px;
+  display: block;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+  background-color: #54be96;
+  color: #fbfbfb;
+  border-color: #54be96;
+}

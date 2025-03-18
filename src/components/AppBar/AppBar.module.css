@@ -79,14 +79,16 @@
     line-height: 20px; /* 125% */
     letter-spacing: -0.16px;
     display: block;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .loginBtn:hover,
   .loginBtn:focus {
     background-color: #54be96;
     color: #fbfbfb;
-    border: none;
+    border-color: #54be96;
   }
 
   .regBtn {
