@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import avatar from '../../assets/img/avatar-1.webp';
+import { useState } from 'react';
 import icons from '../../assets/sprite.svg';
 import Reviews from '../Reviews/Reviews.jsx';
 import s from './PsychologistCard.module.css';
@@ -7,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/psychologists/selectors.js';
 import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { toggleFavorite } from '../../redux/psychologists/slice.js';
+import toast from 'react-hot-toast';
 
 const PsychologistCard = ({ data }) => {
   const [showReviews, setShowReviews] = useState(false);
@@ -20,9 +20,7 @@ const PsychologistCard = ({ data }) => {
     if (isLoggedIn) {
       dispatch(toggleFavorite(item));
     } else {
-      console.log('This functionality is available only to authorized users');
-
-      // додати react-hot-toast
+      toast.error('This functionality is available only to authorized users');
       return;
     }
   };

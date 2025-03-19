@@ -2,9 +2,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Modal from '../Modal/Modal.jsx';
-import avatar from '../../assets/img/avatar-1.webp';
 import TimeSelect from '../TimeSelect/TimeSelect.jsx';
 import s from './ReviewsForm.module.css';
+import toast from 'react-hot-toast';
+import { ref, push, set } from 'firebase/database';
+import { database } from '../../firebase.js';
 
 const schema = yup.object().shape({
   name: yup
@@ -31,16 +33,36 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
-    // додати react-hot-toast
-    // додати закриття по бекдропу та Esc
+  const handleTimeSelect = (time) => {
+    setValue('time', time);
+  };
+
+  const onSubmit = async (data) => {
+    try {
+      const appointmentsRef = ref(database, 'appointments');
+      const newAppointmentRef = push(appointmentsRef);
+
+      await set(newAppointmentRef, {
+        name: data.name,
+        tel: data.tel,
+        time: data.time,
+        email: data.email,
+        comment: data.comment,
+      });
+
+      toast.success('Successfully created personal meeting appointment');
+      reset();
+      onClose();
+      // додати закриття по бекдропу та Esc
+    } catch (error) {}
+    console.error('Error writing appointment data:', error);
+    toast.error('Failed to create appointment. Please try again later.');
   };
 
   return (
@@ -87,15 +109,7 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
               {errors.tel && <p className={s.error}>{errors.tel?.message}</p>}
             </label>
             <label>
-              {/* <input
-                  className={s.input}
-                  {...register('time')}
-                  type="time"
-                  placeholder="00:00"
-                /> */}
-
-              <TimeSelect />
-
+              <TimeSelect onTimeSelect={handleTimeSelect} />
               {errors.time && <p className={s.error}>{errors.time?.message}</p>}
             </label>
           </div>

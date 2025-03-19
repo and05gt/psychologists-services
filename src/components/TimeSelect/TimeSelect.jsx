@@ -9,13 +9,15 @@ const times = [
   { id: 4, value: '10:30' },
 ];
 
-const TimeSelect = () => {
+const TimeSelect = ({ onTimeSelect }) => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [showTimes, setShowTimes] = useState(false);
 
   const handleSelectTime = (time) => {
+    console.log(time.value);
     setSelectedTime(time);
     setShowTimes(false);
+    onTimeSelect(time.value);
   };
 
   return (
