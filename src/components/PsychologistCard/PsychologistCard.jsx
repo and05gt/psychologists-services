@@ -14,7 +14,7 @@ const PsychologistCard = ({ data }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
-  const isFavorite = favorites.some((favorite) => favorite?.uid === data?.uid);
+  const isFavorite = favorites.some((favorite) => favorite?.id === data?.id);
 
   const addFavorite = (item) => {
     if (isLoggedIn) {

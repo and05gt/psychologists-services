@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import icons from '../../assets/sprite.svg';
 import s from './Filters.module.css';
+import { useDispatch } from 'react-redux';
+import { getSortType } from '../../redux/psychologists/slice.js';
 
 const options = [
   { id: 1, label: 'A to Z' },
@@ -12,13 +14,14 @@ const options = [
   { id: 7, label: 'Show all' },
 ];
 const Filters = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
   const [showOptions, setShowOptions] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSelect = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
-    // зробити фільтрацію
+    dispatch(getSortType(option.label));
   };
 
   return (
@@ -38,10 +41,14 @@ const Filters = () => {
           )}
         </div>
         {showOptions && (
-          <div className={showOptions ? s.optionsShow : s.options}>
+          <div className={showOptions && s.optionsShow}>
             {options.map((option) => (
               <div
-                className={s.option}
+                className={
+                  selectedOption.label === option.label
+                    ? s.optionSelected
+                    : s.option
+                }
                 key={option.id}
                 onClick={() => handleSelect(option)}
               >

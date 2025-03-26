@@ -33,7 +33,6 @@ const Login = ({ isOpen, onClose }) => {
     dispatch(login(data));
     reset();
     onClose();
-    // додати закриття по бекдропу та Esc
   };
 
   return (
@@ -70,11 +69,11 @@ const Login = ({ isOpen, onClose }) => {
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                <svg width={20} height={20}>
+                <svg width={16} height={16}>
                   <use href={icons + '#icon-eye'}></use>
                 </svg>
               ) : (
-                <svg width={20} height={20}>
+                <svg width={16} height={16}>
                   <use href={icons + '#icon-eye-off'}></use>
                 </svg>
               )}

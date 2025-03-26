@@ -1,118 +1,22 @@
 .header {
+  border-bottom: 1px solid rgba(25, 26, 21, 0.1);
+}
+
+.headerWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  border-bottom: 1px solid rgba(25, 26, 21, 0.1);
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 16px 0;
 }
 
 @media (min-width: 768px) {
-  .header {
-    padding: 20px 32px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .header {
-    padding: 24px 128px;
-  }
-}
-
-.headerBtnWrap {
-  display: none;
-}
-
-@media (min-width: 1440px) {
-  .headerBtnWrap {
-    display: flex;
-    gap: 8px;
-  }
-}
-
-.headerBtn {
-  width: 34px;
-  height: 34px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-}
-
-@media (min-width: 1440px) {
-  .headerBtn {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .headerBtn svg {
-    width: 40px;
-    height: 40px;
+  .headerWrapper {
+    padding: 20px 0;
   }
 }
 
 @media (min-width: 1440px) {
   .headerWrapper {
-    display: flex;
-    align-items: center;
-    gap: 130px;
-  }
-
-  .loginBtn {
-    width: 124px;
-    height: 48px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 14px 38px;
-    border-radius: 30px;
-    border: 1px solid rgba(25, 26, 21, 0.2);
-    background-color: transparent;
-    color: #191a15;
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 125% */
-    letter-spacing: -0.16px;
-    display: block;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .loginBtn:hover,
-  .loginBtn:focus {
-    background-color: #54be96;
-    color: #fbfbfb;
-    border-color: #54be96;
-  }
-
-  .regBtn {
-    width: 171px;
-    height: 48px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 14px 40px;
-    border-radius: 30px;
-    background-color: #54be96;
-    color: #fbfbfb;
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 125% */
-    letter-spacing: -0.16px;
-    display: block;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .regBtn:hover,
-  .regBtn:focus {
-    background-color: #36a379;
+    padding: 24px 0;
   }
 }

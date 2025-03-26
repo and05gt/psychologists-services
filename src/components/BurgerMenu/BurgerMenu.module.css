@@ -1,0 +1,81 @@
+.headerBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1440px) {
+  .headerBtn {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .headerBtn svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(25, 26, 21, 0.6);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (min-width: 1440px) {
+  .menuOverlay {
+    display: none;
+  }
+}
+
+.menuContainer {
+  position: absolute;
+  padding: 64px 16px;
+  width: 240px;
+  height: 100%;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .menuContainer {
+    padding: 64px 32px;
+    width: 360px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .menuContainer {
+    display: none;
+  }
+}
+
+.closeMenuBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .closeMenuBtn {
+    top: 20px;
+    right: 32px;
+  }
+}

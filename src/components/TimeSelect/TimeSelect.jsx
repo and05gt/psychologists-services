@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import icons from '../../assets/sprite.svg';
 import s from './TimeSelect.module.css';
 
@@ -12,24 +12,41 @@ const times = [
 const TimeSelect = ({ onTimeSelect }) => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [showTimes, setShowTimes] = useState(false);
+  const timeSelectRef = useRef(null);
 
   const handleSelectTime = (time) => {
-    console.log(time.value);
     setSelectedTime(time);
     setShowTimes(false);
     onTimeSelect(time.value);
   };
 
+  const handleTimeSelectClick = () => {
+    setShowTimes(!showTimes);
+    if (timeSelectRef.current) {
+      timeSelectRef.current.focus();
+    }
+  };
+
+  const handleBlur = () => {
+    setShowTimes(false);
+  };
+
   return (
     <div className={s.customTimeSelect}>
-      <div className={s.timeSelect} onClick={() => setShowTimes(!showTimes)}>
+      <div
+        className={s.timeSelect}
+        onClick={handleTimeSelectClick}
+        tabIndex={0}
+        ref={timeSelectRef}
+        onBlur={handleBlur}
+      >
         {selectedTime ? selectedTime.value : '00:00'}
-        <svg width={20} height={20}>
+        <svg width={16} height={16}>
           <use href={icons + '#icon-clock'}></use>
         </svg>
       </div>
       {showTimes && (
-        <div className={showTimes ? s.timeOptionsShow : s.timeOptions}>
+        <div className={showTimes && s.timeOptionsShow}>
           <p className={s.timeSubtitle}>Meeting time</p>
           <div className={s.timeOptionWrap}>
             {times.map((time) => (

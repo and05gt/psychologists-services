@@ -59,9 +59,7 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
       toast.success('Successfully created personal meeting appointment');
       reset();
       onClose();
-      // додати закриття по бекдропу та Esc
     } catch (error) {}
-    console.error('Error writing appointment data:', error);
     toast.error('Failed to create appointment. Please try again later.');
   };
 
@@ -77,13 +75,13 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
           professional psychologist. We guarantee confidentiality and respect
           for your privacy.
         </p>
-      </div>
 
-      <div className={s.psychologistContainer}>
-        <img className={s.psychologistImg} src={avatar} alt="Avatar" />
-        <div className={s.psychologistWrap}>
-          <p className={s.psychologistText}>Your psychologists</p>
-          <h3 className={s.psychologistName}>{name}</h3>
+        <div className={s.psychologistContainer}>
+          <img className={s.psychologistImg} src={avatar} alt="Avatar" />
+          <div className={s.psychologistWrap}>
+            <p className={s.psychologistText}>Your psychologists</p>
+            <h3 className={s.psychologistName}>{name}</h3>
+          </div>
         </div>
       </div>
 

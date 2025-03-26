@@ -1,52 +1,48 @@
-import { useState } from 'react';
 import Logo from '../Logo/Logo.jsx';
 import Navigation from '../Navigation/Navigation.jsx';
-import icons from '../../assets/sprite.svg';
-import LoginForm from '../LoginForm/LoginForm.jsx';
 import s from './AppBar.module.css';
-import RegistrationForm from '../RegistrationForm/RegistrationForm.jsx';
 import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import UserMenu from '../UserMenu/UserMenu.jsx';
 import { useSelector } from 'react-redux';
+import BurgerMenu from '../BurgerMenu/BurgerMenu.jsx';
+import UserAuth from '../UserAuth/UserAuth.jsx';
+import { useEffect, useState } from 'react';
+import Container from '../Container/Container.jsx';
 
 const AppBar = () => {
-  const [isOpenLogin, setIsOpenLogin] = useState(false);
-  const [isOpenRegister, setIsOpenRegister] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const openLogin = () => setIsOpenLogin(true);
-  const closeLogin = () => setIsOpenLogin(false);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-  const openRegister = () => setIsOpenRegister(true);
-  const closeRegister = () => setIsOpenRegister(false);
+    window.addEventListener('resize', handleWindowResize);
+    handleWindowResize();
+
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
 
   return (
     <header className={s.header}>
-      <div className={s.headerWrapper}>
-        <Logo />
-        <Navigation />
-      </div>
-      {isLoggedIn ? (
-        <UserMenu />
-      ) : (
-        <div className={s.headerBtnWrap}>
-          <button className={s.loginBtn} type="button" onClick={openLogin}>
-            Log In
-          </button>
-          <button className={s.regBtn} type="button" onClick={openRegister}>
-            Registration
-          </button>
+      <Container>
+        <div className={s.headerWrapper}>
+          {windowWidth < 1440 && (
+            <>
+              <Logo />
+              <BurgerMenu />
+            </>
+          )}
+          {windowWidth >= 1440 && (
+            <>
+              <Logo />
+              <Navigation />
+              {isLoggedIn ? <UserMenu /> : <UserAuth />}
+            </>
+          )}
         </div>
-      )}
-      {/* зробити юзерменю адаптивним і додати функціонал до кнопки меню */}
-      <button className={s.headerBtn} type="button">
-        <svg width={34} height={34}>
-          <use href={icons + '#icon-menu'}></use>
-        </svg>
-      </button>
-
-      <LoginForm isOpen={isOpenLogin} onClose={closeLogin} />
-      <RegistrationForm isOpen={isOpenRegister} onClose={closeRegister} />
+      </Container>
     </header>
   );
 };
