@@ -15,9 +15,7 @@ const BurgerMenu = () => {
   const handleCloseMenu = (e) => {
     e.stopPropagation();
     if (e.target !== e.currentTarget || e.code === 'Escape')
-      console.log('called handleCloseMenu');
-
-    setIsMenuOpen(false);
+      setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -47,11 +45,7 @@ const BurgerMenu = () => {
 
       {isMenuOpen && (
         <div className={s.menuOverlay}>
-          <div
-            className={s.menuContainer}
-            ref={menuRef}
-            // onClick={handleCloseMenu}
-          >
+          <div className={s.menuContainer} ref={menuRef}>
             <button
               className={s.closeMenuBtn}
               type="button"

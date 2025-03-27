@@ -6,40 +6,23 @@ import PsychologistsList from '../../components/PsychologistsList/PsychologistsL
 import s from './PsychologistsPage.module.css';
 import {
   selectIsLoading,
-  selectSortQuery,
+  selectLastKey,
+  selectPsychologists,
   selectSortType,
 } from '../../redux/psychologists/selectors.js';
 import { useEffect } from 'react';
-import {
-  getPsychologistsFromAtoZ,
-  getPsychologistsFromZtoA,
-  getPsychologistsGreater10,
-  getPsychologistsLess10,
-  getPsychologistsNotPopular,
-  getPsychologistsPopular,
-} from '../../redux/psychologists/operations.js';
+import { getPsychologists } from '../../redux/psychologists/operations.js';
 
 const PsychologistsPage = () => {
   const isLoading = useSelector(selectIsLoading);
-  const sortQuery = useSelector(selectSortQuery);
+  const psychologists = useSelector(selectPsychologists);
   const sortType = useSelector(selectSortType);
+  const lastKey = useSelector(selectLastKey);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (sortType === 'A to Z' || sortType === 'Show all') {
-      dispatch(getPsychologistsFromAtoZ(sortQuery));
-    } else if (sortType === 'Z to A') {
-      dispatch(getPsychologistsFromZtoA(sortQuery));
-    } else if (sortType === 'Less than 10$') {
-      dispatch(getPsychologistsLess10(sortQuery));
-    } else if (sortType === 'Greater than 10$') {
-      dispatch(getPsychologistsGreater10(sortQuery));
-    } else if (sortType === 'Popular') {
-      dispatch(getPsychologistsPopular(sortQuery));
-    } else if (sortType === 'Not popular') {
-      dispatch(getPsychologistsNotPopular(sortQuery));
-    }
-  }, [dispatch, sortQuery, sortType]);
+    dispatch(getPsychologists({ startKey: null, sortType }));
+  }, [dispatch, sortType]);
 
   return (
     <main style={{ background: '#F3F3F3' }}>

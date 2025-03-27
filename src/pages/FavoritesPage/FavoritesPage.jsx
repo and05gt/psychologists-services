@@ -57,6 +57,7 @@ const FavoritesPage = () => {
           {error && <h3>{error}</h3>}
           <Filters />
           <FavoritesList filteredData={data} />
+          {/* add a load more button with the logic to your favorite psychologist */}
         </section>
       </Container>
     </main>

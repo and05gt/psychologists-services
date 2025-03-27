@@ -6,7 +6,6 @@ import s from './UserAuth.module.css';
 const UserAuth = () => {
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenRegister, setIsOpenRegister] = useState(false);
-  console.log(isOpenLogin);
 
   const openLogin = (e) => {
     e.stopPropagation();
