@@ -33,11 +33,11 @@ export const getPsychologistsFromAtoZ = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const sortedPsychologists = psychologistsArray.toSorted((a, b) =>
+        const sortedPsychologists = psychologistsArray.sort((a, b) =>
           a.name.localeCompare(b.name),
         );
 
-        const hasNextPage = sortedPsychologists.length % 3 === 0;
+        const hasNextPage = sortedPsychologists.length === 3;
 
         return { psychologists: sortedPsychologists, hasNextPage };
       } else {
@@ -80,11 +80,11 @@ export const getPsychologistsFromZtoA = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const sortedPsychologists = psychologistsArray.toSorted((a, b) =>
+        const sortedPsychologists = psychologistsArray.sort((a, b) =>
           b.name.localeCompare(a.name),
         );
 
-        const hasNextPage = sortedPsychologists.length % 3 === 0;
+        const hasNextPage = sortedPsychologists.length === 3;
 
         return { psychologists: sortedPsychologists, hasNextPage };
       } else {
@@ -127,7 +127,7 @@ export const getPsychologistsLess10 = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const hasNextPage = psychologistsArray.length % 3 === 0;
+        const hasNextPage = psychologistsArray.length === 3;
 
         return { psychologists: psychologistsArray, hasNextPage };
       } else {
@@ -170,7 +170,7 @@ export const getPsychologistsGreater10 = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const hasNextPage = psychologistsArray.length % 3 === 0;
+        const hasNextPage = psychologistsArray.length === 3;
 
         return { psychologists: psychologistsArray, hasNextPage };
       } else {
@@ -201,8 +201,8 @@ export const getPsychologistsPopular = createAsyncThunk(
         query(
           psychologistsRef,
           orderByChild('rating'),
-          endBefore(condition ? condition : 5.1),
-          limitToFirst(3), // пофіксити отримання даних за рейтингом
+          startAfter(condition ? condition : 0),
+          limitToLast(3),
         ),
       );
 
@@ -213,9 +213,11 @@ export const getPsychologistsPopular = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const sortedPsychologists = psychologistsArray.reverse();
+        const sortedPsychologists = psychologistsArray.sort(
+          (a, b) => b.rating - a.rating,
+        );
 
-        const hasNextPage = sortedPsychologists.length % 3 === 0;
+        const hasNextPage = sortedPsychologists.length === 3;
 
         return { psychologists: sortedPsychologists, hasNextPage };
       } else {
@@ -258,7 +260,7 @@ export const getPsychologistsNotPopular = createAsyncThunk(
           return { id: item, ...rawData[item] };
         });
 
-        const hasNextPage = psychologistsArray.length % 3 === 0;
+        const hasNextPage = psychologistsArray.length === 3;
 
         return { psychologists: psychologistsArray, hasNextPage };
       } else {

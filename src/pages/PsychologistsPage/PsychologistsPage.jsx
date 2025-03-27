@@ -42,7 +42,7 @@ const PsychologistsPage = () => {
   }, [dispatch, sortQuery, sortType]);
 
   return (
-    <main>
+    <main style={{ background: '#F3F3F3' }}>
       <Container>
         <section className={s.psychologistSection}>
           <Filters />

@@ -50,7 +50,7 @@ const FavoritesPage = () => {
   }, [sortType, favorites]);
 
   return (
-    <main>
+    <main style={{ background: '#F3F3F3' }}>
       <Container>
         <section className={s.favoritesSection}>
           {isLoading && <div>Loading favorites psychologists...</div>}

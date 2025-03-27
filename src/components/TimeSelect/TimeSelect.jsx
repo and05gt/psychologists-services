@@ -27,10 +27,6 @@ const TimeSelect = ({ onTimeSelect }) => {
     }
   };
 
-  const handleBlur = () => {
-    setShowTimes(false);
-  };
-
   return (
     <div className={s.customTimeSelect}>
       <div
@@ -38,7 +34,6 @@ const TimeSelect = ({ onTimeSelect }) => {
         onClick={handleTimeSelectClick}
         tabIndex={0}
         ref={timeSelectRef}
-        onBlur={handleBlur}
       >
         {selectedTime ? selectedTime.value : '00:00'}
         <svg width={16} height={16}>

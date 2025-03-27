@@ -8,10 +8,15 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu.jsx';
 import UserAuth from '../UserAuth/UserAuth.jsx';
 import { useEffect, useState } from 'react';
 import Container from '../Container/Container.jsx';
+import { useLocation } from 'react-router-dom';
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const location = useLocation();
+
+  const headerBackground =
+    location.pathname === '/' ? 'transparent' : '#F3F3F3';
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -25,7 +30,7 @@ const AppBar = () => {
   }, []);
 
   return (
-    <header className={s.header}>
+    <header className={s.header} style={{ background: headerBackground }}>
       <Container>
         <div className={s.headerWrapper}>
           {windowWidth < 1440 && (
