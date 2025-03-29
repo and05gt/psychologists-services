@@ -25,7 +25,7 @@ const schema = yup.object().shape({
     .string()
     .email('Email must be a valid!')
     .required('Email is required!'),
-  comment: yup.string(),
+  comment: yup.string().required('Comment is required!'),
 });
 
 const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {

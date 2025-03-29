@@ -10,6 +10,7 @@ import {
   selectSortType,
 } from '../../redux/psychologists/selectors.js';
 import { useEffect, useState } from 'react';
+import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn.jsx';
 
 const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -17,6 +18,7 @@ const FavoritesPage = () => {
   const error = useSelector(selectError);
   const sortType = useSelector(selectSortType);
   const [data, setData] = useState([]);
+  const [count, setCount] = useState(3);
 
   let filtered = [...favorites];
 
@@ -49,6 +51,10 @@ const FavoritesPage = () => {
     setData(filtered);
   }, [sortType, favorites]);
 
+  const handleLoadMore = () => {
+    setCount((prev) => prev + 3);
+  };
+
   return (
     <main style={{ background: '#F3F3F3' }}>
       <Container>
@@ -56,8 +62,10 @@ const FavoritesPage = () => {
           {isLoading && <div>Loading favorites psychologists...</div>}
           {error && <h3>{error}</h3>}
           <Filters />
-          <FavoritesList filteredData={data} />
-          {/* add a load more button with the logic to your favorite psychologist */}
+          <FavoritesList filteredData={data} count={count} />
+          {data.length > 0 && !isLoading && count < data.length && (
+            <LoadMoreBtn onClick={handleLoadMore} />
+          )}
         </section>
       </Container>
     </main>
