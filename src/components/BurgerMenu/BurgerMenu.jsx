@@ -19,8 +19,8 @@ const BurgerMenu = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsMenuOpen(false);
       }
     };
@@ -45,7 +45,11 @@ const BurgerMenu = () => {
 
       {isMenuOpen && (
         <div className={s.menuOverlay}>
-          <div className={s.menuContainer} ref={menuRef}>
+          <div
+            className={s.menuContainer}
+            ref={menuRef}
+            onClick={handleCloseMenu}
+          >
             <button
               className={s.closeMenuBtn}
               type="button"

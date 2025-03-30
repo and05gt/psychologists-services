@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Modal from '../Modal/Modal.jsx';
 import icons from '../../assets/sprite.svg';
 import s from './RegistrationForm.module.css';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations.js';
 import { useState } from 'react';
+import { useModal } from '../ModalContext.jsx';
 
 const schema = yup.object().shape({
   name: yup
@@ -21,9 +21,10 @@ const schema = yup.object().shape({
   password: yup.string().required('Password is required!'),
 });
 
-const Registration = ({ isOpen, onClose }) => {
+const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
 
   const {
     register,
@@ -37,11 +38,11 @@ const Registration = ({ isOpen, onClose }) => {
   const onSubmit = (data) => {
     dispatch(registerUser(data));
     reset();
-    onClose();
+    closeModal();
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <>
       <div className={s.registerTitleWrap}>
         <h2 className={s.registerTitle}>Registration</h2>
         <p className={s.registerText}>
@@ -102,8 +103,8 @@ const Registration = ({ isOpen, onClose }) => {
           Sign Up
         </button>
       </form>
-    </Modal>
+    </>
   );
 };
 
-export default Registration;
+export default RegistrationForm;

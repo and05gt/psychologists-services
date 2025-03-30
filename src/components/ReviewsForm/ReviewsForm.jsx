@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Modal from '../Modal/Modal.jsx';
 import TimeSelect from '../TimeSelect/TimeSelect.jsx';
 import s from './ReviewsForm.module.css';
 import toast from 'react-hot-toast';
 import { ref, push, set } from 'firebase/database';
 import { database } from '../../firebase.js';
+import { useModal } from '../ModalContext.jsx';
 
 const schema = yup.object().shape({
   name: yup
@@ -28,7 +28,9 @@ const schema = yup.object().shape({
   comment: yup.string().required('Comment is required!'),
 });
 
-const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
+const ReviewsForm = ({ avatar, name }) => {
+  const { closeModal } = useModal();
+
   const {
     register,
     handleSubmit,
@@ -58,13 +60,13 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
 
       toast.success('Successfully created personal meeting appointment');
       reset();
-      onClose();
+      closeModal();
     } catch (error) {}
     toast.error('Failed to create appointment. Please try again later.');
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <>
       <div className={s.modalTitleWrap}>
         <h2 className={s.modalTitle}>
           Make an appointment with a psychologists
@@ -131,7 +133,7 @@ const ReviewsForm = ({ isOpen, onClose, name, avatar }) => {
           Send
         </button>
       </form>
-    </Modal>
+    </>
   );
 };
 

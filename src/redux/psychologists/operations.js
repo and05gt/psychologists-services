@@ -79,11 +79,7 @@ export const getPsychologists = createAsyncThunk(
         return { psychologists: [], lastKey: null };
       }
     } catch (error) {
-      if (error.code === 'PERMISSION_DENIED') {
-        return thunkAPI.rejectWithValue(
-          'Insufficient permissions to access data.',
-        );
-      } else if (error.code === 'NOT_FOUND') {
+      if (error.code === 'NOT_FOUND') {
         return thunkAPI.rejectWithValue('Psychologists data not found.');
       } else {
         console.error('Unexpected error:', error);

@@ -63,16 +63,6 @@ export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
     try {
-      // const user = auth.currentUser;
-
-      // if (user) {
-      //   const token = await user.getIdToken();
-
-      //   return { displayName: user.displayName, token };
-      // } else {
-      //   return 'No user is signed in.';
-      // }
-
       return new Promise((resolve, reject) => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
           unsubscribe();

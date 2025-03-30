@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Modal from '../Modal/Modal.jsx';
 import icons from '../../assets/sprite.svg';
 import s from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations.js';
 import { useState } from 'react';
+import { useModal } from '../ModalContext.jsx';
 
 const schema = yup.object().shape({
   email: yup
@@ -16,9 +16,10 @@ const schema = yup.object().shape({
   password: yup.string().required('Password is required!'),
 });
 
-const Login = ({ isOpen, onClose }) => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
 
   const {
     register,
@@ -32,11 +33,11 @@ const Login = ({ isOpen, onClose }) => {
   const onSubmit = (data) => {
     dispatch(login(data));
     reset();
-    onClose();
+    closeModal();
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <>
       <div className={s.loginTitleWrap}>
         <h2 className={s.loginTitle}>Log In</h2>
         <p className={s.loginText}>
@@ -87,8 +88,8 @@ const Login = ({ isOpen, onClose }) => {
           Log In
         </button>
       </form>
-    </Modal>
+    </>
   );
 };
 
-export default Login;
+export default LoginForm;

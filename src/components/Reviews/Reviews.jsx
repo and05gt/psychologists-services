@@ -1,15 +1,11 @@
-import { useState } from 'react';
 import icons from '../../assets/sprite.svg';
 import s from './Reviews.module.css';
 import ReviewsForm from '../ReviewsForm/ReviewsForm.jsx';
+import { useModal } from '../ModalContext.jsx';
 
 const Reviews = ({ data }) => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
-  const openModal = () => setIsOpenModal(true);
-  const closeModal = () => setIsOpenModal(false);
-
   const { avatar_url, name, reviews } = data;
+  const { openModal } = useModal();
 
   return (
     <>
@@ -34,16 +30,15 @@ const Reviews = ({ data }) => {
           );
         })}
       </ul>
-      <button className={s.reviewsBtn} type="button" onClick={openModal}>
+      <button
+        className={s.reviewsBtn}
+        type="button"
+        onClick={() =>
+          openModal(<ReviewsForm avatar={avatar_url} name={name} />)
+        }
+      >
         Make an appointment
       </button>
-
-      <ReviewsForm
-        isOpen={isOpenModal}
-        onClose={closeModal}
-        avatar={avatar_url}
-        name={name}
-      />
     </>
   );
 };
