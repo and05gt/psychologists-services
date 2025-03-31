@@ -1,9 +1,11 @@
 .logo {
+  color: #191a15;
   font-size: 18px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.4px;
   display: flex;
+  text-decoration: none;
 }
 
 .logoAccentText {

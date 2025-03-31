@@ -61,8 +61,9 @@ const ReviewsForm = ({ avatar, name }) => {
       toast.success('Successfully created personal meeting appointment');
       reset();
       closeModal();
-    } catch (error) {}
-    toast.error('Failed to create appointment. Please try again later.');
+    } catch (error) {
+      toast.error('Failed to create appointment. Please try again later.');
+    }
   };
 
   return (

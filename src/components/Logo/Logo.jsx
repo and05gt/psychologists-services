@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import s from './Logo.module.css';
 
 const Logo = () => {
   return (
-    <p className={s.logo}>
+    <Link className={s.logo} to="/">
       <span className={s.logoAccentText}>
         psychologists<span>.</span>
       </span>
       services
-    </p>
+    </Link>
   );
 };
 
